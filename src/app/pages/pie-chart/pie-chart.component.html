@@ -1,0 +1,23 @@
+<section>
+    <div class="filter-container">
+        <app-filter-form (formSubmitted)="sendForm($event)"></app-filter-form>
+        <app-button (event)="clicked()"></app-button>
+    </div>
+    @if (isChartGenerated) {
+        <div class="graphs-container">
+            @if (isShowingNgx) {
+                <ngx-charts-pie-chart
+                    [results]="ngxData"
+                    [animations]="true"
+                    [view]="view"
+                    [gradient]="gradient"
+                    [labels]="true"
+                    [legend]="true"
+                    [legendTitle]="'Empleados'">
+                </ngx-charts-pie-chart>
+            } @else { 
+                <p-chart type="pie" [data]="chartjsData" [width]="'460px'" [height]="'460px'"/>
+            }
+        </div>
+    }
+</section>

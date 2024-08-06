@@ -1,0 +1,28 @@
+<section>
+    <div class="filter-container">
+        <app-filter-form (formSubmitted)="sendForm($event)"></app-filter-form>
+        <app-button (event)="clicked()"></app-button>
+    </div>
+    @if (isChartGenerated) {
+        <div class="graphs-container">
+            @if (isShowingNgx) {
+                <ngx-charts-line-chart
+                    [results]="ngxData"
+                    [animations]="true"
+                    [view]="view"
+                    [gradient]="gradient"
+                    [legend]="true"
+                    [legendTitle]="'Empleados'"
+                    [xAxis]="showXAxis"
+                    [yAxis]="showYAxis"
+                    [showXAxisLabel]="showXAxisLabel"
+                    [showYAxisLabel]="showYAxisLabel"
+                    [xAxisLabel]="xAxisLabel"
+                    [yAxisLabel]="yAxisLabel">
+                </ngx-charts-line-chart>
+            } @else {
+                <p-chart type="line" [data]="chartjsData" [width]="'800px'" [height]="'400px'"/>
+            }
+        </div>
+    }
+</section>

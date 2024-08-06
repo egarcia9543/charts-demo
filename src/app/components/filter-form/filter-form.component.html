@@ -1,0 +1,38 @@
+<form id="form" [formGroup]="filterForm" (ngSubmit)="submitForm()">
+    <mat-form-field>
+        <mat-label>Primer filtro</mat-label>
+        <mat-select formControlName="firstFilter">
+            <mat-option [value]="'Total PQRs'">Total PQRs</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Segundo filtro</mat-label>
+        <mat-select formControlName="secondFilter">
+            <mat-option [value]="'employees'">Empleados</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <p-calendar
+        [style]="{'height':'56px'}" [inputStyle]="{'height':'56px'}"
+        [showIcon]="true" 
+        [showOnFocus]="false" 
+        [dateFormat]="'dd/mm/yy'"
+        inputId="buttondisplay" 
+        formControlName="startDate"
+        [maxDate]="currentDate"
+        [placeholder]="'Fecha de inicio'"
+    />
+
+    <p-calendar  
+        [style]="{'height':'56px'}" [inputStyle]="{'height':'56px'}"
+        [showIcon]="true" 
+        [showOnFocus]="false" 
+        [dateFormat]="'dd/mm/yy'"
+        inputId="buttondisplay2"
+        formControlName="endDate"
+        [maxDate]="currentDate"
+        [placeholder]="'Fecha de fin'"
+    />
+    <button mat-raised-button [disabled]="!filterForm.valid">Generar</button>
+</form>

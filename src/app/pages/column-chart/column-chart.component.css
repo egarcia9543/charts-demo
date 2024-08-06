@@ -1,0 +1,24 @@
+section {
+    height: 100%;
+}
+
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    height: 15%;
+    padding-top: 20px;
+}
+
+app-filter-form {
+    width: 100%;
+}
+
+.graphs-container {
+    height: 85%!important;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    height: max-content;
+}
